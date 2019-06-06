@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name BodyTempUnit-e7-eagle-import)(type Legacy)(uri ${KIPRJMOD}/BodyTempUnit-e7-eagle-import.lib)(options "")(descr ""))
+  (lib (name MCP1801T-3302I_OT)(type Legacy)(uri ${KIPRJMOD}/libraries/mcp1801t/MCP1801T-3302I_OT.lib)(options "")(descr ""))
+  (lib (name pgmfoot)(type Legacy)(uri "${KIPRJMOD}/footprints/tagconnect/KiCad/Kicad another/pgmfoot.lib")(options "")(descr ""))
+  (lib (name Tag-Connect)(type Legacy)(uri "${KIPRJMOD}/footprints/tagconnect/KiCad/Tag-Connect Full Catalog KiCad Decal Library/Tag-Connect_DemoBoard/Tag-Connect.lib")(options "")(descr ""))
+)
