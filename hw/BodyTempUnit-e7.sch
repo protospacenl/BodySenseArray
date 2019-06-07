@@ -107,14 +107,6 @@ Wire Wire Line
 Text Label 4500 4600 0    50   ~ 0
 SIG_IN
 Wire Wire Line
-	1900 1900 2100 1900
-Text Label 2100 1900 0    50   ~ 0
-GND
-Wire Wire Line
-	1900 800  2100 800 
-Text Label 2100 800  0    50   ~ 0
-GND
-Wire Wire Line
 	8000 1800 8000 1700
 Wire Wire Line
 	8000 1700 8000 1600
@@ -949,18 +941,8 @@ F 3 "" H 2700 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1900 1200 2100 1200
-Wire Wire Line
-	1900 1500 2100 1500
-Wire Wire Line
-	2100 1500 2100 1200
-Connection ~ 2100 1200
-Wire Wire Line
-	2100 1200 2700 1200
-Wire Wire Line
 	4400 1200 4400 1400
 Connection ~ 4400 1200
-Connection ~ 2700 1200
 Wire Wire Line
 	2700 1200 3000 1200
 Wire Wire Line
@@ -997,8 +979,6 @@ F 3 "" H 4400 1900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4400 1700 4400 1800
-Text Label 2100 1200 0    50   ~ 0
-Vin
 Wire Wire Line
 	4300 5700 4500 5700
 Wire Wire Line
@@ -1151,4 +1131,40 @@ Wire Wire Line
 	3250 7250 2750 7250
 Wire Wire Line
 	2750 7250 2750 7300
+Wire Wire Line
+	1900 1200 2050 1200
+Wire Wire Line
+	2050 1500 1900 1500
+$Comp
+L BodyTempUnit-e7-eagle-import:GND #GND0105
+U 1 1 5CFD39BA
+P 2200 1350
+F 0 "#GND0105" H 2200 1350 50  0001 C CNN
+F 1 "GND" H 2100 1250 59  0000 L BNN
+F 2 "" H 2200 1350 50  0001 C CNN
+F 3 "" H 2200 1350 50  0001 C CNN
+	1    2200 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2050 1200 2050 1500
+Wire Wire Line
+	2050 1200 2200 1200
+Wire Wire Line
+	2200 1200 2200 1250
+Connection ~ 2050 1200
+Wire Wire Line
+	1900 800  1950 800 
+Wire Wire Line
+	2700 800  2700 1200
+Connection ~ 2700 1200
+Wire Wire Line
+	1900 1900 1950 1900
+Wire Wire Line
+	1950 1900 1950 800 
+Connection ~ 1950 800 
+Wire Wire Line
+	1950 800  2700 800 
+Text Label 2700 800  0    50   ~ 0
+VIN
 $EndSCHEMATC
