@@ -3,7 +3,7 @@ EESchema-LIBRARY Version 2.4
 #
 # BodyTempUnit-e7-eagle-import_53?-05261
 #
-DEF BodyTempUnit-e7-eagle-import_53?-05261 X 0 40 Y Y 5 L N
+DEF ~BodyTempUnit-e7-eagle-import_53?-05261 X 0 40 Y Y 5 L N
 F0 "X" 100 -30 51 H V L BNN
 F1 "BodyTempUnit-e7-eagle-import_53?-05261" -30 55 59 H I L BNN
 F2 "" 0 0 50 H I C CNN
@@ -41,7 +41,7 @@ ENDDEF
 #
 # BodyTempUnit-e7-eagle-import_FRAME-A4L
 #
-DEF BodyTempUnit-e7-eagle-import_FRAME-A4L #FRAME 0 40 Y Y 1 L N
+DEF ~BodyTempUnit-e7-eagle-import_FRAME-A4L #FRAME 0 40 Y Y 1 L N
 F0 "#FRAME" 0 0 50 H I C CNN
 F1 "BodyTempUnit-e7-eagle-import_FRAME-A4L" 0 0 50 H I C CNN
 F2 "" 0 0 50 H I C CNN
@@ -161,7 +161,7 @@ ENDDEF
 #
 # BodyTempUnit-e7-eagle-import_MAX481CUA
 #
-DEF BodyTempUnit-e7-eagle-import_MAX481CUA IC 0 40 Y Y 2 L N
+DEF ~BodyTempUnit-e7-eagle-import_MAX481CUA IC 0 40 Y Y 2 L N
 F0 "IC" -30 -30 59 H V L BNN
 F1 "BodyTempUnit-e7-eagle-import_MAX481CUA" -400 -600 59 H I L BNN
 F2 "" 0 0 50 H I C CNN
@@ -349,6 +349,19 @@ X GND 3 -300 100 300 R 50 50 1 2 w
 X PGD 4 -300 0 300 R 50 50 1 2 B
 X PGC 5 -300 -100 300 R 50 50 1 2 I
 X LVP 6 -300 -200 300 R 50 50 1 2 I
+ENDDRAW
+ENDDEF
+#
+# power_PWR_FLAG
+#
+DEF power_PWR_FLAG #FLG 0 0 N N 1 F P
+F0 "#FLG" 0 75 50 H I C CNN
+F1 "power_PWR_FLAG" 0 150 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 6 0 1 0 0 0 0 50 -40 75 0 100 40 75 0 50 N
+X pwr 1 0 0 0 U 50 50 0 0 w
 ENDDRAW
 ENDDEF
 #
