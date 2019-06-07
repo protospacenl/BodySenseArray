@@ -1,6 +1,6 @@
 EESchema Schematic File Version 4
 LIBS:BodyTempUnit-e7-cache
-EELAYER 26 0
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -241,15 +241,15 @@ GND
 Wire Wire Line
 	1900 1600 2100 1600
 Text Label 2100 1600 0    50   ~ 0
-RS485_A
+RS485_+
 Text Label 2100 1100 0    50   ~ 0
-RS485_A
+RS485_+
 Wire Wire Line
 	1900 1700 2100 1700
 Text Label 2100 1700 0    50   ~ 0
-RS485_B
+RS485_-
 Text Label 2100 1000 0    50   ~ 0
-RS485_B
+RS485_-
 Wire Wire Line
 	4300 4500 4500 4500
 Text Label 4500 4500 0    50   ~ 0
@@ -869,13 +869,13 @@ F 3 "" H 5700 1350 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Text Label 5500 1550 2    50   ~ 0
-RS485_B
+RS485_-
 Wire Wire Line
 	5700 1550 5500 1550
 Wire Wire Line
 	5700 1150 5500 1150
 Text Label 5500 1150 2    50   ~ 0
-RS485_A
+RS485_+
 Wire Wire Line
 	5850 1250 5850 1150
 Wire Wire Line
@@ -1037,20 +1037,16 @@ Wire Wire Line
 $Comp
 L BodyTempUnit-e7-eagle-import:GND #GND0103
 U 1 1 5D007A25
-P 3250 7400
-F 0 "#GND0103" H 3250 7400 50  0001 C CNN
-F 1 "GND" H 3150 7300 59  0000 L BNN
-F 2 "" H 3250 7400 50  0001 C CNN
-F 3 "" H 3250 7400 50  0001 C CNN
-	1    3250 7400
+P 2750 7400
+F 0 "#GND0103" H 2750 7400 50  0001 C CNN
+F 1 "GND" H 2650 7300 59  0000 L BNN
+F 2 "" H 2750 7400 50  0001 C CNN
+F 3 "" H 2750 7400 50  0001 C CNN
+	1    2750 7400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3250 6850 2900 6850
 Text Label 2900 6750 0    50   ~ 0
 MISO
-Text Label 2900 6850 0    50   ~ 0
-Vin
 Text Label 2900 6950 0    50   ~ 0
 SCK
 Text Label 2900 7050 0    50   ~ 0
@@ -1069,8 +1065,6 @@ NoConn ~ 4300 3600
 NoConn ~ 3000 1500
 NoConn ~ 9500 5300
 NoConn ~ 9500 5400
-Wire Wire Line
-	3250 7300 3250 7250
 Wire Wire Line
 	5100 5700 5100 5500
 Wire Wire Line
@@ -1138,4 +1132,23 @@ Wire Wire Line
 	6250 7350 6250 7300
 Wire Wire Line
 	6650 7350 6650 7300
+$Comp
+L BodyTempUnit-e7-eagle-import:VCC #SUPPLY0103
+U 1 1 5CFBB5FE
+P 2750 6650
+F 0 "#SUPPLY0103" H 2750 6650 50  0001 C CNN
+F 1 "VCC" H 2710 6790 59  0000 L BNN
+F 2 "" H 2750 6650 50  0001 C CNN
+F 3 "" H 2750 6650 50  0001 C CNN
+	1    2750 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 6850 2750 6850
+Wire Wire Line
+	2750 6850 2750 6650
+Wire Wire Line
+	3250 7250 2750 7250
+Wire Wire Line
+	2750 7250 2750 7300
 $EndSCHEMATC

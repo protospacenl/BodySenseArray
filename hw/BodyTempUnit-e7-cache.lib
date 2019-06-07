@@ -3,7 +3,7 @@ EESchema-LIBRARY Version 2.4
 #
 # BodyTempUnit-e7-eagle-import_53?-05261
 #
-DEF ~BodyTempUnit-e7-eagle-import_53?-05261 X 0 40 Y Y 5 L N
+DEF BodyTempUnit-e7-eagle-import_53?-05261 X 0 40 Y Y 5 L N
 F0 "X" 100 -30 51 H V L BNN
 F1 "BodyTempUnit-e7-eagle-import_53?-05261" -30 55 59 H I L BNN
 F2 "" 0 0 50 H I C CNN
@@ -131,7 +131,7 @@ ENDDEF
 #
 # BodyTempUnit-e7-eagle-import_MAX481CUA
 #
-DEF ~BodyTempUnit-e7-eagle-import_MAX481CUA IC 0 40 Y Y 2 L N
+DEF BodyTempUnit-e7-eagle-import_MAX481CUA IC 0 40 Y Y 2 L N
 F0 "IC" -30 -30 59 H V L BNN
 F1 "BodyTempUnit-e7-eagle-import_MAX481CUA" -400 -600 59 H I L BNN
 F2 "" 0 0 50 H I C CNN

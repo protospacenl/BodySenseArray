@@ -1,4 +1,5 @@
 (fp_lib_table
   (lib (name BodyTempUnit-e7)(type KiCad)(uri "$(KIPRJMOD)/BodyTempUnit-e7.pretty")(options "")(descr ""))
   (lib (name Footprints)(type KiCad)(uri C:/Users/jan-j/Desktop/BodySenseArray/Footprints)(options "")(descr ""))
+  (lib (name MLF32)(type KiCad)(uri ${KIPRJMOD}/footprints/MLF32)(options "")(descr ""))
 )
