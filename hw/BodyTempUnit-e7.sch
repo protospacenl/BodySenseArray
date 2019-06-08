@@ -20,7 +20,6 @@ Wire Wire Line
 	8000 900  8400 900 
 Wire Wire Line
 	8000 1000 8000 900 
-Connection ~ 8000 900 
 Text Label 8400 900  0    10   ~ 0
 VCC
 Wire Wire Line
@@ -99,10 +98,6 @@ Connection ~ 9600 5200
 Text Label 9500 5600 0    10   ~ 0
 VCC
 Wire Wire Line
-	1900 1800 2100 1800
-Text Label 2100 1800 0    50   ~ 0
-SIG_IN
-Wire Wire Line
 	4300 4600 4500 4600
 Text Label 4500 4600 0    50   ~ 0
 SIG_IN
@@ -151,21 +146,6 @@ Wire Wire Line
 	9700 3400 9800 3400
 Wire Wire Line
 	9800 3400 9800 3700
-Wire Wire Line
-	9700 2900 9800 2900
-Wire Wire Line
-	9800 2900 9800 3000
-Wire Wire Line
-	9800 3000 9800 3100
-Wire Wire Line
-	9800 3100 9800 3400
-Wire Wire Line
-	9700 3000 9800 3000
-Wire Wire Line
-	9700 3100 9800 3100
-Connection ~ 9800 3400
-Connection ~ 9800 3000
-Connection ~ 9800 3100
 Text Label 9700 3400 0    10   ~ 0
 GND
 Wire Wire Line
@@ -230,17 +210,13 @@ Connection ~ 6100 5700
 Connection ~ 6100 5300
 Text Label 6000 4900 0    10   ~ 0
 GND
-Wire Wire Line
-	1900 1600 2100 1600
-Text Label 2100 1600 0    50   ~ 0
+Text Label 1600 1600 0    50   ~ 0
 RS485_+
-Text Label 2100 1100 0    50   ~ 0
+Text Label 1600 1100 0    50   ~ 0
 RS485_+
-Wire Wire Line
-	1900 1700 2100 1700
-Text Label 2100 1700 0    50   ~ 0
+Text Label 1600 1700 0    50   ~ 0
 RS485_-
-Text Label 2100 1000 0    50   ~ 0
+Text Label 1600 1000 0    50   ~ 0
 RS485_-
 Wire Wire Line
 	4300 4500 4500 4500
@@ -250,16 +226,6 @@ Wire Wire Line
 	4300 4400 4500 4400
 Text Label 4500 4400 0    50   ~ 0
 RS485_RO
-Wire Wire Line
-	1900 900  2100 900 
-Text Label 2100 900  0    50   ~ 0
-SIG_OUT
-Text Label 2100 900  0    50   ~ 0
-SIG_OUT
-Wire Wire Line
-	4300 5300 4500 5300
-Text Label 4500 5300 0    50   ~ 0
-SIG_OUT
 Wire Wire Line
 	4300 3900 4800 3900
 Wire Wire Line
@@ -329,127 +295,6 @@ Wire Wire Line
 	5100 5700 5200 5700
 Wire Wire Line
 	5100 5300 5200 5300
-$Comp
-L BodyTempUnit-e7-eagle-import:MAX30205MTA+21-0137I_T833-2-M U1
-U 1 1 94FABF20
-P 8200 2900
-F 0 "U1" H 8814 3359 69  0000 L BNN
-F 1 "MAX30205MTA+21-0137I_T833-2-M" H 8789 3259 69  0000 L BNN
-F 2 "BodyTempUnit-e7:21-0137I_T833-2-M" H 8200 2900 50  0001 C CNN
-F 3 "" H 8200 2900 50  0001 C CNN
-	1    8200 2900
-	1    0    0    -1  
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_IN1
-U 1 1 530F4A61
-P 1800 1900
-F 0 "COM_IN1" H 1900 1870 51  0000 L BNN
-F 1 "53?-05261" H 1770 1955 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1900 50  0001 C CNN
-F 3 "" H 1800 1900 50  0001 C CNN
-	1    1800 1900
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_IN1
-U 2 1 530F4A6D
-P 1800 1800
-F 0 "COM_IN1" H 1900 1770 51  0000 L BNN
-F 1 "53?-05261" H 1770 1855 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1800 50  0001 C CNN
-F 3 "" H 1800 1800 50  0001 C CNN
-	2    1800 1800
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_IN1
-U 3 1 530F4A69
-P 1800 1700
-F 0 "COM_IN1" H 1900 1670 51  0000 L BNN
-F 1 "53?-05261" H 1770 1755 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1700 50  0001 C CNN
-F 3 "" H 1800 1700 50  0001 C CNN
-	3    1800 1700
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_IN1
-U 4 1 530F4A75
-P 1800 1600
-F 0 "COM_IN1" H 1900 1570 51  0000 L BNN
-F 1 "53?-05261" H 1770 1655 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1600 50  0001 C CNN
-F 3 "" H 1800 1600 50  0001 C CNN
-	4    1800 1600
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_IN1
-U 5 1 530F4A71
-P 1800 1500
-F 0 "COM_IN1" H 1900 1470 51  0000 L BNN
-F 1 "53?-05261" H 1770 1555 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1500 50  0001 C CNN
-F 3 "" H 1800 1500 50  0001 C CNN
-	5    1800 1500
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_OUT1
-U 1 1 ACCF8423
-P 1800 1200
-F 0 "COM_OUT1" H 1900 1170 51  0000 L BNN
-F 1 "53?-05261" H 1770 1255 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1200 50  0001 C CNN
-F 3 "" H 1800 1200 50  0001 C CNN
-	1    1800 1200
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_OUT1
-U 2 1 ACCF842F
-P 1800 1100
-F 0 "COM_OUT1" H 1900 1070 51  0000 L BNN
-F 1 "53?-05261" H 1770 1155 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1100 50  0001 C CNN
-F 3 "" H 1800 1100 50  0001 C CNN
-	2    1800 1100
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_OUT1
-U 3 1 ACCF842B
-P 1800 1000
-F 0 "COM_OUT1" H 1900 970 51  0000 L BNN
-F 1 "53?-05261" H 1770 1055 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 1000 50  0001 C CNN
-F 3 "" H 1800 1000 50  0001 C CNN
-	3    1800 1000
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_OUT1
-U 4 1 ACCF8437
-P 1800 900
-F 0 "COM_OUT1" H 1900 870 51  0000 L BNN
-F 1 "53?-05261" H 1770 955 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 900 50  0001 C CNN
-F 3 "" H 1800 900 50  0001 C CNN
-	4    1800 900 
-	-1   0    0    1   
-$EndComp
-$Comp
-L BodyTempUnit-e7-eagle-import:53?-05261 COM_OUT1
-U 5 1 ACCF8433
-P 1800 800
-F 0 "COM_OUT1" H 1900 770 51  0000 L BNN
-F 1 "53?-05261" H 1770 855 59  0001 L BNN
-F 2 "BodyTempUnit-e7:53261-05" H 1800 800 50  0001 C CNN
-F 3 "" H 1800 800 50  0001 C CNN
-	5    1800 800 
-	-1   0    0    1   
-$EndComp
 $Comp
 L BodyTempUnit-e7-eagle-import:LSM6DS3 U2
 U 1 1 4E0AB7A9
@@ -660,17 +505,6 @@ F 3 "" H 8000 2600 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L BodyTempUnit-e7-eagle-import:VCC #SUPPLY06
-U 1 1 A7CD5EB6
-P 8000 2400
-F 0 "#SUPPLY06" H 8000 2400 50  0001 C CNN
-F 1 "VCC" H 7960 2540 59  0000 L BNN
-F 2 "" H 8000 2400 50  0001 C CNN
-F 3 "" H 8000 2400 50  0001 C CNN
-	1    8000 2400
-	1    0    0    -1  
-$EndComp
-$Comp
 L BodyTempUnit-e7-eagle-import:GND #GND05
 U 1 1 5B6A58CA
 P 8200 4200
@@ -824,10 +658,6 @@ F 3 "" H 6100 6100 50  0001 C CNN
 	1    6100 6100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1900 1000 2100 1000
-Wire Wire Line
-	1900 1100 2100 1100
 Wire Wire Line
 	6850 1050 7150 1050
 Text Label 7150 1050 0    50   ~ 0
@@ -1054,8 +884,6 @@ Wire Wire Line
 Wire Wire Line
 	5100 5400 4300 5400
 Wire Wire Line
-	5100 5100 4300 5100
-Wire Wire Line
 	5100 5100 5100 4900
 Wire Wire Line
 	5100 4900 5200 4900
@@ -1063,7 +891,6 @@ Wire Wire Line
 	4300 4900 4500 4900
 Text Label 4500 4900 0    50   ~ 0
 RS485_DE
-NoConn ~ 4300 5000
 $Comp
 L power:PWR_FLAG #FLG0101
 U 1 1 5D068EBE
@@ -1131,40 +958,135 @@ Wire Wire Line
 	3250 7250 2750 7250
 Wire Wire Line
 	2750 7250 2750 7300
-Wire Wire Line
-	1900 1200 2050 1200
-Wire Wire Line
-	2050 1500 1900 1500
 $Comp
 L BodyTempUnit-e7-eagle-import:GND #GND0105
 U 1 1 5CFD39BA
-P 2200 1350
-F 0 "#GND0105" H 2200 1350 50  0001 C CNN
-F 1 "GND" H 2100 1250 59  0000 L BNN
-F 2 "" H 2200 1350 50  0001 C CNN
-F 3 "" H 2200 1350 50  0001 C CNN
-	1    2200 1350
+P 1500 2200
+F 0 "#GND0105" H 1500 2200 50  0001 C CNN
+F 1 "GND" H 1400 2100 59  0000 L BNN
+F 2 "" H 1500 2200 50  0001 C CNN
+F 3 "" H 1500 2200 50  0001 C CNN
+	1    1500 2200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2050 1200 2050 1500
-Wire Wire Line
-	2050 1200 2200 1200
-Wire Wire Line
-	2200 1200 2200 1250
-Connection ~ 2050 1200
-Wire Wire Line
-	1900 800  1950 800 
 Wire Wire Line
 	2700 800  2700 1200
 Connection ~ 2700 1200
 Wire Wire Line
-	1900 1900 1950 1900
+	2150 1900 2150 800 
+Connection ~ 2150 800 
 Wire Wire Line
-	1950 1900 1950 800 
-Connection ~ 1950 800 
-Wire Wire Line
-	1950 800  2700 800 
+	2150 800  2700 800 
 Text Label 2700 800  0    50   ~ 0
 VIN
+$Comp
+L BodyTempUnit-e7-eagle-import:MAX30205MTA+21-0137I_T833-2-M U1
+U 1 1 94FABF20
+P 8200 2900
+F 0 "U1" H 8814 3359 69  0000 L BNN
+F 1 "MAX30205MTA+21-0137I_T833-2-M" H 8789 3259 69  0000 L BNN
+F 2 "BodyTempUnit-e7:21-0137I_T833-2-M" H 8200 2900 50  0001 C CNN
+F 3 "" H 8200 2900 50  0001 C CNN
+	1    8200 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9700 3100 9800 3100
+Wire Wire Line
+	9800 3100 9800 3000
+Wire Wire Line
+	9700 2900 9800 2900
+Connection ~ 9800 2900
+Wire Wire Line
+	9800 2900 9800 2750
+Wire Wire Line
+	9700 3000 9800 3000
+Connection ~ 9800 3000
+Wire Wire Line
+	9800 3000 9800 2900
+$Comp
+L BodyTempUnit-e7-eagle-import:VCC #SUPPLY06
+U 1 1 A7CD5EB6
+P 8000 2400
+F 0 "#SUPPLY06" H 8000 2400 50  0001 C CNN
+F 1 "VCC" H 7960 2540 59  0000 L BNN
+F 2 "" H 8000 2400 50  0001 C CNN
+F 3 "" H 8000 2400 50  0001 C CNN
+	1    8000 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L BodyTempUnit-e7-eagle-import:VCC #SUPPLY0104
+U 1 1 5D1C5C95
+P 9800 2750
+F 0 "#SUPPLY0104" H 9800 2750 50  0001 C CNN
+F 1 "VCC" H 9760 2890 59  0000 L BNN
+F 2 "" H 9800 2750 50  0001 C CNN
+F 3 "" H 9800 2750 50  0001 C CNN
+	1    9800 2750
+	1    0    0    -1  
+$EndComp
+Connection ~ 8000 900 
+$Comp
+L Connector_Generic:Conn_01x05 J1
+U 1 1 5D20A11B
+P 1200 1000
+F 0 "J1" H 1118 575 50  0000 C CNN
+F 1 "CONN_IN" H 1118 666 50  0000 C CNN
+F 2 "Connector_Molex:Molex_PicoBlade_53261-0571_1x05-1MP_P1.25mm_Horizontal" H 1200 1000 50  0001 C CNN
+F 3 "~" H 1200 1000 50  0001 C CNN
+	1    1200 1000
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x05 J2
+U 1 1 5D20BB11
+P 1200 1700
+F 0 "J2" H 1118 1275 50  0000 C CNN
+F 1 "CONN_OUT" H 1118 1366 50  0000 C CNN
+F 2 "Connector_Molex:Molex_PicoBlade_53261-0571_1x05-1MP_P1.25mm_Horizontal" H 1200 1700 50  0001 C CNN
+F 3 "~" H 1200 1700 50  0001 C CNN
+	1    1200 1700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1400 900  1600 900 
+Wire Wire Line
+	1400 1000 1600 1000
+Wire Wire Line
+	1400 1100 1600 1100
+Wire Wire Line
+	1400 800  2150 800 
+Wire Wire Line
+	1400 1600 1600 1600
+Wire Wire Line
+	1400 1800 1600 1800
+Wire Wire Line
+	1400 1700 1600 1700
+Wire Wire Line
+	1400 1900 2150 1900
+Text Label 1600 900  0    50   ~ 0
+SIG_IN
+Text Label 1600 1800 0    50   ~ 0
+SIG_OUT
+Wire Wire Line
+	1400 1200 1500 1200
+Wire Wire Line
+	1500 1200 1500 1500
+Wire Wire Line
+	1500 1500 1400 1500
+Wire Wire Line
+	1500 1500 1500 2100
+Connection ~ 1500 1500
+Wire Wire Line
+	4300 5000 4500 5000
+Text Label 4500 5000 0    50   ~ 0
+SIG_OUT
+Wire Wire Line
+	4300 5300 5000 5300
+Wire Wire Line
+	5000 5300 5000 5100
+Wire Wire Line
+	5000 5100 5100 5100
+NoConn ~ 4300 5100
 $EndSCHEMATC

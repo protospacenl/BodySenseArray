@@ -1,4 +1,4 @@
-15998017063109292
+15987653969852542
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -39937,13 +39937,6 @@ USB A Vertical
 7
 5
 Connector_USB
-USB_A_Stewart_SS-52100-001_Horizontal
-USB A connector https://belfuse.com/resources/drawings/stewartconnector/dr-stw-ss-52100-001.pdf
-USB_A Female Connector receptacle
-0
-6
-5
-Connector_USB
 USB_A_Wuerth_61400826021_Horizontal_Stacked
 Stacked USB A connector http://katalog.we-online.de/em/datasheet/61400826021.pdf
 Wuerth stacked USB_A
@@ -47098,13 +47091,6 @@ Inductor Radial series Radial pin pitch 5.00mm  diameter 10.0mm Neosid SD12 styl
 2
 2
 Inductor_THT
-L_Radial_D10.5mm_P4.00x5.00mm_Murata_1200RS
-Inductor, Radial, Pitch=4.00x5.00mm, Diameter=10.5mm, Murata 1200RS, http://www.murata-ps.com/data/magnetics/kmp_1200rs.pdf
-Inductor Radial Murata 1200RS
-0
-4
-2
-Inductor_THT
 L_Radial_D10.5mm_P5.00mm_Abacron_AISR-01
 Inductor, Radial series, Radial, pin pitch=5.00mm, , diameter=10.5mm, Abacron, AISR-01, http://www.abracon.com/Magnetics/radial/AISR-01.pdf
 Inductor Radial series Radial pin pitch 5.00mm  diameter 10.5mm Abacron AISR-01
@@ -49155,13 +49141,6 @@ Yellow 5381 Series LED
 0
 2
 2
-MLF32
-MLF32-PAD
-
-
-0
-33
-33
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
@@ -51521,146 +51500,6 @@ XFBGA-121
 0
 121
 121
-Package_BGA
-Xilinx_CPG236
-Artix-7 BGA, 19x19 grid, 10x10mm package, 0.5mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=266, NSMD pad definition Appendix A
-BGA 238 0.5 CP236 CPG236
-0
-238
-238
-Package_BGA
-Xilinx_CPG238
-Artix-7 BGA, 19x19 grid, 10x10mm package, 0.5mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=267, NSMD pad definition Appendix A
-BGA 238 0.5 CPG238
-0
-238
-238
-Package_BGA
-Xilinx_CPGA196
-Spartan-7 BGA, 14x14 grid, 8x8mm package, 0.5mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=260, NSMD pad definition Appendix A
-BGA 196 0.5 CPGA196
-0
-196
-196
-Package_BGA
-Xilinx_CSG324
-Artix-7 BGA, 18x18 grid, 15x15mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=268, NSMD pad definition Appendix A
-BGA 324 0.8 CS324 CSG324
-0
-324
-324
-Package_BGA
-Xilinx_CSG325
-Artix-7 BGA, 18x18 grid, 15x15mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=268, NSMD pad definition Appendix A
-BGA 324 0.8 CS325 CSG235
-0
-324
-324
-Package_BGA
-Xilinx_CSGA225
-Spartan-7 BGA, 15x15 grid, 13x13mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=262, NSMD pad definition Appendix A
-BGA 225 0.8 CSGA225
-0
-225
-225
-Package_BGA
-Xilinx_CSGA324
-Spartan-7 BGA, 18x18 grid, 15x15mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=263, NSMD pad definition Appendix A
-BGA 324 0.8 CSGA324
-0
-324
-324
-Package_BGA
-Xilinx_FBG484
-Artix-7 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=271, NSMD pad definition Appendix A
-BGA 484 1 FB484 FBG484 FBV484
-0
-484
-484
-Package_BGA
-Xilinx_FBG676
-Artix-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=273, NSMD pad definition Appendix A
-BGA 676 1 FB676 FBG676 FBV676
-0
-676
-676
-Package_BGA
-Xilinx_FFG1156
-Artix-7 BGA, 34x34 grid, 35x35mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=277, NSMD pad definition Appendix A
-BGA 1156 1 FF1156 FFG1156 FFV1156
-0
-1156
-1156
-Package_BGA
-Xilinx_FGG484
-Artix-7 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=275, NSMD pad definition Appendix A
-BGA 484 1 FG484 FGG484
-0
-484
-484
-Package_BGA
-Xilinx_FGG676
-Artix-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=276, NSMD pad definition Appendix A
-BGA 676 1 FG676 FGG676
-0
-676
-676
-Package_BGA
-Xilinx_FGGA484
-Spartan-7 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=264, NSMD pad definition Appendix A
-BGA 484 1 FGGA484
-0
-484
-484
-Package_BGA
-Xilinx_FGGA676
-Spartan-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=265, NSMD pad definition Appendix A
-BGA 676 1 FGGA676
-0
-676
-676
-Package_BGA
-Xilinx_FTG256
-Artix-7 BGA, 16x16 grid, 17x17mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=269, NSMD pad definition Appendix A
-BGA 256 1 FT256 FTG256
-0
-256
-256
-Package_BGA
-Xilinx_FTGB196
-Spartan-7 BGA, 14x14 grid, 15x15mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=261, NSMD pad definition Appendix A
-BGA 196 1 FTGB196
-0
-196
-196
-Package_BGA
-Xilinx_RB484
-Artix-7 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=278, NSMD pad definition Appendix A
-BGA 484 1 RB484
-0
-484
-484
-Package_BGA
-Xilinx_RB676
-Artix-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=280, NSMD pad definition Appendix A
-BGA 676 1 RB676
-0
-676
-676
-Package_BGA
-Xilinx_RS484
-Artix-7 BGA, 22x22 grid, 19x19mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=279, NSMD pad definition Appendix A
-BGA 484 0.8 RS484
-0
-484
-484
-Package_BGA
-Xilinx_SBG484
-Artix-7 BGA, 22x22 grid, 19x19mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=270, NSMD pad definition Appendix A
-BGA 484 0.8 SB484 SBG484 SBV484
-0
-484
-484
 Package_CSP
 Analog_LFCSP-8-1EP_3x3mm_P0.5mm_EP1.53x1.85mm
 LFCSP, exposed pad, Analog Devices (http://www.analog.com/media/en/technical-documentation/data-sheets/ADL5542.pdf)
@@ -52963,20 +52802,6 @@ QFN DFN_QFN
 0
 31
 17
-Package_DFN_QFN
-QFN-20-1EP_3.5x3.5mm_P0.5mm_EP2x2mm
-QFN, 20 Pin (http://www.ti.com/lit/ml/mpqf239/mpqf239.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
-QFN NoLead
-0
-25
-21
-Package_DFN_QFN
-QFN-20-1EP_3.5x3.5mm_P0.5mm_EP2x2mm_ThermalVias
-QFN, 20 Pin (http://www.ti.com/lit/ml/mpqf239/mpqf239.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
-QFN NoLead
-0
-30
-21
 Package_DFN_QFN
 QFN-20-1EP_3x3mm_P0.4mm_EP1.65x1.65mm
 QFN, 20 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/3553fc.pdf#page=34), generated with kicad-footprint-generator ipc_noLead_generator.py
@@ -56870,8 +56695,8 @@ Analog Devices (Linear Tech), 133-pin LGA uModule, 15.0x15.0x4.32mm, https://www
 133
 133
 Package_LGA
-NXP_LGA-8_3x5mm_P1.25mm_H1.2mm
-NXP  LGA, 8 Pin (https://www.nxp.com/docs/en/data-sheet/MPL115A1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+NXP_MPL115A1_LGA-8_3x5mm_P1.25mm
+NXP MPL115A1 LGA, 8 Pin (https://www.nxp.com/docs/en/data-sheet/MPL115A1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
 NXP LGA NoLead
 0
 8
@@ -60005,13 +59830,6 @@ DRT-3 1x0.8mm Pitch 0.7mm
 0
 3
 3
-Package_TO_SOT_SMD
-Texas_NDY0011A
-TO-PMOD-11 11-pin switching regulator package, http://www.ti.com/lit/ml/mmsf025/mmsf025.pdf
-Texas TO-PMOD NDY00011A
-0
-12
-12
 Package_TO_SOT_SMD
 Texas_R-PDSO-G6
 R-PDSO-G6, http://www.ti.com/lit/ds/slis144b/slis144b.pdf
@@ -65096,8 +64914,8 @@ LoRa Low Power Long Range Transceiver Module
 16
 RF_Module
 HOPERF_RFM9XW_THT
-Low Power Long Range Transceiver Module THT-16 (https://www.hoperf.com/data/upload/portal/20181127/5bfcbea20e9ef.pdf)
-Low Power Long Range Transceiver Module LoRa
+ Low Power Long Range Transceiver Module SMD-16 http://www.hoperf.com/upload/rf/RFM95_96_97_98W.pdf
+ Low Power Long Range Transceiver Module
 0
 16
 16
