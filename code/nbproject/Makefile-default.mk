@@ -109,26 +109,26 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa" -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/main.o.d" -MT "${OBJECTDIR}/main.o.d" -MT ${OBJECTDIR}/main.o  -o ${OBJECTDIR}/main.o main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa" -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "C:/WinAVR-20100110/avr/include" -Wall -MD -MP -MF "${OBJECTDIR}/main.o.d" -MT "${OBJECTDIR}/main.o.d" -MT ${OBJECTDIR}/main.o  -o ${OBJECTDIR}/main.o main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/twi_ard.o: twi_ard.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/twi_ard.o.d 
 	@${RM} ${OBJECTDIR}/twi_ard.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa" -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/twi_ard.o.d" -MT "${OBJECTDIR}/twi_ard.o.d" -MT ${OBJECTDIR}/twi_ard.o  -o ${OBJECTDIR}/twi_ard.o twi_ard.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa" -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "C:/WinAVR-20100110/avr/include" -Wall -MD -MP -MF "${OBJECTDIR}/twi_ard.o.d" -MT "${OBJECTDIR}/twi_ard.o.d" -MT ${OBJECTDIR}/twi_ard.o  -o ${OBJECTDIR}/twi_ard.o twi_ard.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa"  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/main.o.d" -MT "${OBJECTDIR}/main.o.d" -MT ${OBJECTDIR}/main.o  -o ${OBJECTDIR}/main.o main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa"  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "C:/WinAVR-20100110/avr/include" -Wall -MD -MP -MF "${OBJECTDIR}/main.o.d" -MT "${OBJECTDIR}/main.o.d" -MT ${OBJECTDIR}/main.o  -o ${OBJECTDIR}/main.o main.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 ${OBJECTDIR}/twi_ard.o: twi_ard.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/twi_ard.o.d 
 	@${RM} ${OBJECTDIR}/twi_ard.o 
-	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa"  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -MD -MP -MF "${OBJECTDIR}/twi_ard.o.d" -MT "${OBJECTDIR}/twi_ard.o.d" -MT ${OBJECTDIR}/twi_ard.o  -o ${OBJECTDIR}/twi_ard.o twi_ard.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega88pa  -I "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\include"  -B "C:\Program Files (x86)\Microchip\MPLABX\v5.20\packs\Microchip\ATmega_DFP\2.0.12\gcc\dev\atmega88pa"  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "C:/WinAVR-20100110/avr/include" -Wall -MD -MP -MF "${OBJECTDIR}/twi_ard.o.d" -MT "${OBJECTDIR}/twi_ard.o.d" -MT ${OBJECTDIR}/twi_ard.o  -o ${OBJECTDIR}/twi_ard.o twi_ard.c  -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 endif
 
