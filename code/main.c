@@ -14,6 +14,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
+#include <util/crc16.h>
 #include "twi_ard.h"
 #include "LM6DS3.h"
 
@@ -22,10 +23,20 @@ volatile uint8_t _sig_in_recv = 0;
 volatile uint8_t _sig_cntr = 0;
 
 //#define SILENCE     1
-
+#define PACKAGE_START_TOKEN '%'
 /*
  * 
  */
+
+struct _sensor_data_stc {
+    uint8_t id;
+    uint16_t t;
+    int16_t acc[3];
+    int16_t gyro[3];
+}  __attribute__((packed));
+typedef struct _sensor_data_stc sensor_data_stc;
+
+#define SENSOR_DATA_SIZE    sizeof(sensor_data_stc)
 
 ISR(TIMER0_COMPA_vect)
 {  
@@ -163,12 +174,11 @@ int discover_id(void)
     return id;
 }
 
-float get_temperature(void)
+int8_t get_temperature_raw(uint16_t *t)
 {
     uint8_t retval = 0;
     uint8_t temp_register[1] = { 0 };
     uint8_t temp_data[2];
-    float temp = -1.0;
     
     retval = twi_writeTo(MAX30205_ADDR, temp_register, 1, 1, 0);
     if (retval != 0) {
@@ -178,12 +188,26 @@ float get_temperature(void)
     retval = twi_readFrom(MAX30205_ADDR, temp_data, 2, 1);
     if (retval != 2) {
         return -2;
-    } else { 
-        uint16_t raw = (temp_data[0] << 8) | temp_data[1];
-        temp = raw * 0.00390625;
     }
     
-    return temp;
+    *t = (temp_data[0] << 8) | temp_data[1];
+    
+    return 0;  
+}
+
+int8_t get_temperature(float *t)
+{
+    int8_t retval;
+    uint16_t raw;
+    
+    retval = get_temperature_raw(&raw);
+    if (retval < 0) {
+        return retval;
+    }
+       
+    *t = raw * 0.00390625;
+    
+    return 0;
 }
 
 int8_t IMU_read_register(uint8_t offset, uint8_t *data, uint8_t length) {
@@ -245,33 +269,6 @@ uint8_t IMU_available(void)
     
     return 1;
 }
-
-/*
- 	settings.gyroEnabled = 1;  //Can be 0 or 1
-	settings.gyroRange = 2000;   //Max deg/s.  Can be: 125, 245, 500, 1000, 2000
-	settings.gyroSampleRate = 416;   //Hz.  Can be: 13, 26, 52, 104, 208, 416, 833, 1666
-	settings.gyroBandWidth = 400;  //Hz.  Can be: 50, 100, 200, 400;
-	settings.gyroFifoEnabled = 1;  //Set to include gyro in FIFO
-	settings.gyroFifoDecimation = 1;  //set 1 for on /1
-
-	settings.accelEnabled = 1;
-	settings.accelODROff = 1;
-	settings.accelRange = 16;      //Max G force readable.  Can be: 2, 4, 8, 16
-	settings.accelSampleRate = 416;  //Hz.  Can be: 13, 26, 52, 104, 208, 416, 833, 1666, 3332, 6664, 13330
-	settings.accelBandWidth = 100;  //Hz.  Can be: 50, 100, 200, 400;
-	settings.accelFifoEnabled = 1;  //Set to include accelerometer in the FIFO
-	settings.accelFifoDecimation = 1;  //set 1 for on /1
-
-	settings.tempEnabled = 1;
-
-	//Select interface mode
-	settings.commMode = 1;  //Can be modes 1, 2 or 3
-
-	//FIFO control data
-	settings.fifoThreshold = 3000;  //Can be 0 to 4096 (16 bit bytes)
-	settings.fifoSampleRate = 10;  //default 10Hz
-	settings.fifoModeWord = 0;  //Default off
- */
 
 int8_t init_IMU(void)
 {
@@ -374,6 +371,62 @@ int8_t IMU_read_gyro_XYZ(int16_t xyz[])
     return 0;  
 }
 
+static inline void get_sensor_data(sensor_data_stc *data)
+{
+    IMU_read_acc_XYZ(data->acc);
+    IMU_read_gyro_XYZ(data->gyro);
+    get_temperature_raw(&data->t);
+}
+
+static inline void toggle_sig_out(void)
+{
+    _delay_ms(2);
+    PORTD |= _BV(SIG_OUT);
+    _delay_ms(1);
+    PORTD &= ~(_BV(SIG_OUT));  
+}
+
+static inline uint8_t compute_crc(sensor_data_stc *data)
+{
+    uint8_t *d = (uint8_t*)data;
+    uint8_t crc = 0x00;
+    uint8_t i = 0;
+    
+    crc = _crc_ibutton_update(crc, PACKAGE_START_TOKEN);
+    for (i=0; i<SENSOR_DATA_SIZE; i++) {
+        crc = _crc_ibutton_update(crc, d[i]);
+    } 
+    return crc;
+}
+
+static inline uint8_t send_data(sensor_data_stc *data)
+{
+    uint8_t *d = (uint8_t*)data;
+    uint8_t crc = 0x00;
+    uint8_t i = 0;
+    
+    PORTD |= _BV(RS485_DE);
+    
+    loop_until_bit_is_set(UCSR0A, UDRE0);
+    UDR0 = PACKAGE_START_TOKEN;
+        
+    for (i=0; i<SENSOR_DATA_SIZE; i++) {
+        uint8_t c = d[i];
+        
+        crc = _crc_ibutton_update(crc, c);
+        loop_until_bit_is_set(UCSR0A, UDRE0);
+        UDR0 = c;
+    }
+    
+    loop_until_bit_is_set(UCSR0A, UDRE0);
+    UDR0 = crc;
+    
+    _delay_ms(1);
+    PORTD &= ~_BV(RS485_DE);
+    
+    return crc;
+}
+
 int main(int argc, char** argv) 
 {
     uint8_t i;
@@ -428,51 +481,27 @@ int main(int argc, char** argv)
 #if 1
         if (id == 0) {
             if (_ticks > old_tick_val + 50) { 
-                int8_t retval;
-                int16_t acc[3], gyro[3];
-                int8_t have_acc = 0, have_gyro = 0, have_temp = 0;
-                float temp;
+                sensor_data_stc data;
+                uint8_t crc;
                 
                 PORTB |= _BV(LED_RED);
                 
-                retval = IMU_read_acc_XYZ(acc);
-                if (retval < 0) {
-                    rs485_printf("%d,e:Error retrieving acc\n");
-                } else {
-                    have_acc = 1;
-                }
-
-                retval = IMU_read_gyro_XYZ(gyro);
-                if (retval < 0) {
-                    rs485_printf("%d,e:Error retrieving gryo\n");
-                } else {
-                    have_gyro = 1;
-                }
-                
-                temp = get_temperature();
-                if (temp < 0) {
-                    rs485_printf("%d,e:Error retrieving temperature - %d\n", id, temp);
-                } else {
-                    have_temp = 1;
-                }
-                
-                rs485_printf("%%%d;t:%f;a:%d,%d,%d;g:%d,%d,%d\n", id, temp, acc[0], acc[1], acc[2], gyro[0], gyro[1], gyro[2]);
+                data.id = id;
+                get_sensor_data(&data);
+                crc = send_data(&data);
+                rs485_printf(" -- 0x%.2x\n", crc);
+                rs485_printf("%c%d;t:%d;a:%d,%d,%d;g:%d,%d,%d - 0x%.2x\n", '#', data.id, data.t, data.acc[0], data.acc[1], data.acc[2], data.gyro[0], data.gyro[1], data.gyro[2], crc);
                                      
                 old_tick_val = _ticks;
                 
-                _delay_ms(2);
-                PORTD |= _BV(SIG_OUT);
-                _delay_ms(1);
-                PORTD &= ~(_BV(SIG_OUT));
+                toggle_sig_out();
                 
                 PORTB &= ~(_BV(LED_RED));
             } 
         } else { 
             if (_sig_in_recv) {
-                int8_t retval;
-                int16_t acc[3], gyro[3];
-                int8_t have_acc = 0, have_gyro = 0, have_temp = 0;
-                float temp;
+                sensor_data_stc data;
+                uint8_t crc;
                 
                 cli();
                 _sig_in_recv = 0;
@@ -480,33 +509,13 @@ int main(int argc, char** argv)
                 
                 PORTB |= _BV(LED_GREEN2);
                 
-                retval = IMU_read_acc_XYZ(acc);
-                if (retval < 0) {
-                    rs485_printf("%d,e:Error retrieving acc\n");
-                } else {
-                    have_acc = 1;
-                }
-
-                retval = IMU_read_gyro_XYZ(gyro);
-                if (retval < 0) {
-                    rs485_printf("%d,e:Error retrieving gryo\n");
-                } else {
-                    have_gyro = 1;
-                }
-                
-                temp = get_temperature();
-                if (temp < 0) {
-                    rs485_printf("%d,e:Error retrieving temperature - %d\n", id, temp);
-                } else {
-                    have_temp = 1;
-                }
-                
-                rs485_printf("%%%d;t:%f;a:%d,%d,%d;g:%d,%d,%d\n", id, temp, acc[0], acc[1], acc[2], gyro[0], gyro[1], gyro[2]);
-                
-                _delay_ms(2); 
-                PORTD |= _BV(SIG_OUT);
-                _delay_ms(1);
-                PORTD &= ~(_BV(SIG_OUT));
+                data.id = id;
+                get_sensor_data(&data);
+                crc = send_data(&data);
+                rs485_printf(" -- 0x%.2x\n", crc);
+                rs485_printf("%c%d;t:%d;a:%d,%d,%d;g:%d,%d,%d - 0x%.2x\n", '#', data.id, data.t, data.acc[0], data.acc[1], data.acc[2], data.gyro[0], data.gyro[1], data.gyro[2], crc);
+                                       
+                toggle_sig_out();
                 
                 PORTB &= ~(_BV(LED_GREEN2));
             }
@@ -516,4 +525,3 @@ int main(int argc, char** argv)
 
     return (0);
 }
-
