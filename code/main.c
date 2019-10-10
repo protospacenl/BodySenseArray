@@ -464,7 +464,10 @@ int main(int argc, char** argv)
     }
     
     _delay_ms(id * 100);
+    
+#if defined(DEBUG)
     rs485_printf("ID:%d,%d\n", id, _sig_cntr);;
+#endif
     
     for (i=0; i<50; i++) {
         _delay_ms(100);
@@ -472,9 +475,11 @@ int main(int argc, char** argv)
     
     PORTB &= ~((1 << LED_GREEN1) | (1 << LED_GREEN2) | (1 << LED_RED));
     
-    if (IMU_available()) {
-        rs485_printf("Found IMU\n");
+    if (IMU_available()) {        
         init_IMU();
+#if defined(DEBUG)
+        rs485_printf("Found IMU\n");
+#endif
     }
     
     for (;;) {
@@ -489,9 +494,12 @@ int main(int argc, char** argv)
                 data.id = id;
                 get_sensor_data(&data);
                 crc = send_data(&data);
+                
+#if defined(DEBUG)
                 rs485_printf(" -- 0x%.2x\n", crc);
                 rs485_printf("%c%d;t:%d;a:%d,%d,%d;g:%d,%d,%d - 0x%.2x\n", '#', data.id, data.t, data.acc[0], data.acc[1], data.acc[2], data.gyro[0], data.gyro[1], data.gyro[2], crc);
-                                     
+#endif
+                
                 old_tick_val = _ticks;
                 
                 toggle_sig_out();
@@ -512,9 +520,12 @@ int main(int argc, char** argv)
                 data.id = id;
                 get_sensor_data(&data);
                 crc = send_data(&data);
+                
+#if defined(DEBUG)
                 rs485_printf(" -- 0x%.2x\n", crc);
                 rs485_printf("%c%d;t:%d;a:%d,%d,%d;g:%d,%d,%d - 0x%.2x\n", '#', data.id, data.t, data.acc[0], data.acc[1], data.acc[2], data.gyro[0], data.gyro[1], data.gyro[2], crc);
-                                       
+#endif
+                
                 toggle_sig_out();
                 
                 PORTB &= ~(_BV(LED_GREEN2));
