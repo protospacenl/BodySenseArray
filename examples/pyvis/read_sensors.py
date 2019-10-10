@@ -1,10 +1,6 @@
 import serial
 from struct import *
 
-from vispy import gloo
-from vispy import app
-import numpy as np
-
 import math
 import sys
 import time
@@ -27,12 +23,20 @@ class SensorData():
         return t * 0.00390625
 
     def acc_from_raw(self, d):
-        #(float)in * 0.061 * (8 >> 1) / 1000.0;
+        """
+          8g: (float)in * 0.061 * (8 >> 1) / 1000.0;  min: -7.995392g max: 7.995148g
+          2g: (float)in * 0.061 * (2 >> 1) / 1000.0;  min: -1.99848g max: 1.99787g
+        """
         return d * 0.061 * 4.0 / 1000.0
 
     def dps_from_raw(self, d):
-        #(float)in * 4.375 * (2000 / 125) / 1000.0;
+        """
+          (float)in * 4.375 * (2000 / 125) / 1000.0;
+          min: -2293.76 dps
+          max: 2293.69 dps
+        """
         return d * 4.375 * 16 / 1000.0
+
         
     @property
     def id(self):
@@ -62,4 +66,23 @@ def compute_crc(data):
                 crc = crc >> 1
     return crc
 
+if __name__ == '__main__':
+    while True:
+        c = s.read(1)
+        if c == b'%':
+            data = s.read(PAYLOAD_SIZE)
+            crc = compute_crc(data)
+            unpacked = unpack(PAYLOAD_STC_FORMAT, data)
+            
+            if unpacked[-1] == crc:
+                sensorData = SensorData(*unpacked[:-1])
 
+                temp = sensorData.temperature
+                acc = sensorData.acc
+                gyro = sensorData.gyro
+
+                print(f"Sensor {sensorData.id}: t={temp}, acceleration={acc}, gyro={gyro}")
+
+            else:
+                print('Bad checksum')
+    s.close()

@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
+# 
+# Copyright (c) Commonplace Development
+# Demo Body Sense Array data plotting
+# Heavily based on realtime_signals.py vispy demo 
+
 # vispy: gallery 2
 # Copyright (c) Vispy Development Team. All Rights Reserved.
 # Distributed under the (new) BSD License. See LICENSE.txt for more info.
@@ -25,20 +31,20 @@ PAYLOAD_SIZE = 16
 s = serial.Serial('/dev/ttyUSB0', 250000)
 
 # Number of cols and rows in the table.
-nrows = 21
-ncols = 1
+nrows = 7
+ncols = 3
 
 # Number of signals.
 m = nrows*ncols
 
 # Number of samples per signal.
-n = 1000
+n = 1000 
 
 # Various signal amplitudes.
 amplitudes = .1 + .2 * np.random.rand(m, 1).astype(np.float32)
 
 # Generate the signals as a (m, n) array.
-y = amplitudes * np.random.randn(m, n).astype(np.float32)
+#y = amplitudes * np.random.randn(m, n).astype(np.float32)
 y = np.zeros((m,n), np.float32)
 
 # Color of each vertex (TODO: make it more efficient by using a GLSL-based
@@ -181,13 +187,13 @@ class Canvas(app.Canvas):
         self.program['a_position'] = y.reshape(-1, 1)
         self.program['a_color'] = color
         self.program['a_index'] = index
-        self.program['u_scale'] = (1., 25.)
+        self.program['u_scale'] = (1., 1.)
         self.program['u_size'] = (nrows, ncols)
         self.program['u_n'] = n
 
         gloo.set_viewport(0, 0, *self.physical_size)
 
-        self._timer = app.Timer('auto', connect=self.on_timer, start=True)
+        self._timer = app.Timer('0.001', connect=self.on_timer, start=True)
 
         gloo.set_state(clear_color='black', blend=True,
                        blend_func=('src_alpha', 'one_minus_src_alpha'))
@@ -201,17 +207,12 @@ class Canvas(app.Canvas):
         dx = np.sign(event.delta[1]) * .05
         scale_x, scale_y = self.program['u_scale']
         scale_x_new, scale_y_new = (scale_x * math.exp(2.5*dx),
-                                    scale_y * math.exp(0.0*dx))
+                                    scale_y * math.exp(2.5*dx))
         self.program['u_scale'] = (max(1, scale_x_new), max(1, scale_y_new))
         self.update()
 
     def on_timer(self, event):
         """Add some data at the end of each signal (real-time signals)."""
-        #k = 1
-        #y[:, :-k] = y[:, k:]
-        #y[:, -k:] = amplitudes * np.random.randn(m, k)
-        print(y)
-
         self.program['a_position'].set_data(y.ravel().astype(np.float32))
         self.update()
 
@@ -230,20 +231,33 @@ if __name__ == '__main__':
             
             if unpacked[-1] == crc:
                 sensorData = SensorData(*unpacked[:-1])
-                y[sensorData.id, :-1] = y[sensorData.id, 1:]
-                y[sensorData.id, -1:] = (1 / 40.0) * sensorData.temperature
 
-                #ax_temp_window[sensorData.id]['data'].pop(0)
-                #ax_temp_window[sensorData.id]['data'].append(sensorData.temperature)
-                
-                #acc = sensorData.acc
-                #ax_acc_window[sensorData.id]['axis'][0]['data'].pop(0)
-                #ax_acc_window[sensorData.id]['axis'][0]['data'].append(acc[0])
-                #ax_acc_window[sensorData.id]['axis'][1]['data'].pop(0)
-                #ax_acc_window[sensorData.id]['axis'][1]['data'].append(acc[1])
-                #ax_acc_window[sensorData.id]['axis'][2]['data'].pop(0)
-                #ax_acc_window[sensorData.id]['axis'][2]['data'].append(acc[2])
+                # shift temperature
+                y[6+sensorData.id*7, :-1] = y[6+sensorData.id*7, 1:]
+                y[5+sensorData.id*7, :-1] = y[5+sensorData.id*7, 1:]
+                y[4+sensorData.id*7, :-1] = y[4+sensorData.id*7, 1:]
+                y[3+sensorData.id*7, :-1] = y[3+sensorData.id*7, 1:]
+                y[2+sensorData.id*7, :-1] = y[2+sensorData.id*7, 1:]
+                y[1+sensorData.id*7, :-1] = y[1+sensorData.id*7, 1:]
+                y[0+sensorData.id*7, :-1] = y[0+sensorData.id*7, 1:]
+
+
+                # add temperature measurement
+                y[6+sensorData.id*7, -1:] = 2. * (sensorData.temperature - 20.0) / 15.0 - 1.
+
+                # add accmeasurement
+                acc = sensorData.acc
+                y[5+sensorData.id*7, -1:] = acc[0] / 8.
+                y[4+sensorData.id*7, -1:] = acc[1] / 8.
+                y[3+sensorData.id*7, -1:] = acc[2] / 8.
+
+                # add  gyro measurement
+                gyro = sensorData.gyro
+                y[2+sensorData.id*7, -1:] = gyro[0] / 2295.
+                y[1+sensorData.id*7, -1:] = gyro[1] / 2295.
+                y[0+sensorData.id*7, -1:] = gyro[2] / 2295.
+
             else:
                 print('Bad checksum')
-        app.process_events()
+            app.process_events()
     s.close()
