@@ -278,7 +278,7 @@ int8_t init_IMU(void)
     
     /* accelerometer init */
     data |= LSM6DS3_ACC_GYRO_BW_XL_100Hz;
-    data |= LSM6DS3_ACC_GYRO_FS_XL_8g;
+    data |= LSM6DS3_ACC_GYRO_FS_XL_2g;
     data |= LSM6DS3_ACC_GYRO_ODR_XL_416Hz;
     
     cmd[0] = LSM6DS3_ACC_GYRO_CTRL1_XL;
@@ -309,8 +309,8 @@ int8_t init_IMU(void)
 
 float IMU_acc_raw_to_float(int16_t in)
 {
-    /* 8 == accel range */
-    float out = (float)in * 0.061 * (8 >> 1) / 1000.0;
+    /* 2 == accel range */
+    float out = (float)in * 0.061 * (2 >> 1) / 1000.0;
     return out;
 }
 
