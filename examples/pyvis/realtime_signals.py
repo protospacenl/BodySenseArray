@@ -142,9 +142,9 @@ class SensorData():
     def temperature_from_raw(self, t):
         return t * 0.00390625
 
-    def acc_from_raw(self, d):
+    def acc_from_raw(self, d, g=2):
         #(float)in * 0.061 * (8 >> 1) / 1000.0;
-        return d * 0.061 * 4.0 / 1000.0
+        return d * 0.061 * (g >> 1) / 1000.0
 
     def dps_from_raw(self, d):
         #(float)in * 4.375 * (2000 / 125) / 1000.0;
@@ -247,9 +247,9 @@ if __name__ == '__main__':
 
                 # add accmeasurement
                 acc = sensorData.acc
-                y[5+sensorData.id*7, -1:] = acc[0] / 8.
-                y[4+sensorData.id*7, -1:] = acc[1] / 8.
-                y[3+sensorData.id*7, -1:] = acc[2] / 8.
+                y[5+sensorData.id*7, -1:] = acc[0] / 2.
+                y[4+sensorData.id*7, -1:] = acc[1] / 2.
+                y[3+sensorData.id*7, -1:] = acc[2] / 2.
 
                 # add  gyro measurement
                 gyro = sensorData.gyro
