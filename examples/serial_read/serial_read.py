@@ -10,6 +10,8 @@ from datetime import datetime
 PAYLOAD_STC_FORMAT = '<BHhhhhhhB'
 PAYLOAD_SIZE = 16
 
+FORMAT_STRING = "Sensor {}: t={:2.3f},\t g=[x:{:9.6f}, y:{:9.6f}, z:{:9.6f}],\t  dps=[x:{:8.2f}, y:{:8.2f}, z:{:8.2f}]"
+
 s = serial.Serial('/dev/ttyUSB0', 250000)
 
 class SensorData():
@@ -48,7 +50,7 @@ class SensorData():
     
     @property
     def acc(self):
-        return [self.acc_from_raw(x) for x in self.__acc]
+        return [self.acc_from_raw(x, g=2) for x in self.__acc]
     
     @property
     def gyro(self):
@@ -81,7 +83,7 @@ if __name__ == '__main__':
                 acc = sensorData.acc
                 gyro = sensorData.gyro
 
-                print(f"Sensor {sensorData.id}: t={temp}, acceleration={acc}, gyro={gyro}")
+                print(FORMAT_STRING.format(sensorData.id, temp, acc[0], acc[1], acc[2], gyro[0], gyro[1], gyro[2]))
 
             else:
                 print('Bad checksum')
