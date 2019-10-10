@@ -22,12 +22,12 @@ class SensorData():
     def temperature_from_raw(self, t):
         return t * 0.00390625
 
-    def acc_from_raw(self, d):
+    def acc_from_raw(self, d, g=2):
         """
           8g: (float)in * 0.061 * (8 >> 1) / 1000.0;  min: -7.995392g max: 7.995148g
           2g: (float)in * 0.061 * (2 >> 1) / 1000.0;  min: -1.99848g max: 1.99787g
         """
-        return d * 0.061 * 4.0 / 1000.0
+        return d * 0.061 * (g >> 1) / 1000.0
 
     def dps_from_raw(self, d):
         """
